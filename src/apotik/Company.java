@@ -87,7 +87,7 @@ public class Company extends javax.swing.JFrame {
         tfCompanyPos.setBorder(null);
         getContentPane().add(tfCompanyPos, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 210, 160, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/APOTIK SUMBER WARAS (5).png"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/PERUSAHAAN.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 580));
 
         tbtnSelling.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N

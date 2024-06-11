@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import com.toedter.calendar.JDateChooser;
+import database.DbConnection;
 
 
 /**
@@ -15,17 +16,28 @@ import com.toedter.calendar.JDateChooser;
  * @author aufal
  */
 public class Login extends javax.swing.JFrame {
+    
+    //    Menyimpan koneksi ke mysql
+    Connection conn;
+    
+//    Variabel statement
+    Statement stmt;
+    
+//    Variabel untuk menyimpan hasil
+    ResultSet rs;
+    
+    DbConnection connection;
+    
 
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        
+        connection = new DbConnection();
+        conn = connection.getConnection();
     }
-
-    Connection conn = null;
-    Statement st = null;
-    ResultSet rs = null;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -51,7 +63,7 @@ public class Login extends javax.swing.JFrame {
         tfPassword.setBorder(null);
         getContentPane().add(tfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 240, 30));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/APOTIK SUMBER WARAS.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/LOGIN.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 580));
 
         btnLogin.setBackground(new java.awt.Color(204, 204, 204));
@@ -82,23 +94,19 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        String query = "select * from apotik.agents where name = '" + tfUsername.getText() + "' and password = '" + tfPassword.getText() + "'";
+        
 
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            System.out.println("Registro exitoso");
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-
-        try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotik?user=root&password=");
-            st = conn.createStatement();
-            rs = st.executeQuery(query);
-
+            String query = "SELECT * FROM agents WHERE NAME = ? AND PASSWORD = ?";
+            PreparedStatement pstmt =conn.prepareStatement(query);
+            
+            pstmt.setString(1, tfUsername.getText());
+            pstmt.setString(2, new String(tfPassword.getPassword()));
+            rs = pstmt.executeQuery();
             if (rs.next()) {
-                new Medicine().setVisible(true);
-                this.dispose();
+                dispose();
+                Medicine medicine = new Medicine();
+                medicine.setVisible(true);
             }
             else{
                 JOptionPane.showMessageDialog(this, "Wrong user ID or password");

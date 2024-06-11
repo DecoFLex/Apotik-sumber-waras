@@ -106,7 +106,7 @@ public class Medicine extends javax.swing.JFrame {
         tfMedId.setBorder(null);
         getContentPane().add(tfMedId, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 100, 30));
 
-        BACKGROUND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/APOTIK SUMBER WARAS (2).png"))); // NOI18N
+        BACKGROUND.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/STOK OBAT.png"))); // NOI18N
         BACKGROUND.setText("PERUSAHAAN");
         getContentPane().add(BACKGROUND, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 580));
 
@@ -195,7 +195,9 @@ public class Medicine extends javax.swing.JFrame {
     }//GEN-LAST:event_tbtnCompanyMouseClicked
 
     private void tbtnMedicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbtnMedicineMouseClicked
-        tbtnMedicine.setSelected(true);
+        dispose();
+        Medicine medicine = new Medicine();
+        medicine.setVisible(true);
     }//GEN-LAST:event_tbtnMedicineMouseClicked
 
     private void tbtnAgentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbtnAgentsMouseClicked

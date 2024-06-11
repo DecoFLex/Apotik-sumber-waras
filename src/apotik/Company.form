@@ -154,7 +154,7 @@
     <Component class="javax.swing.JLabel" name="background">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/gambar/APOTIK SUMBER WARAS (5).png"/>
+          <Image iconType="3" name="/gambar/PERUSAHAAN.png"/>
         </Property>
       </Properties>
       <Constraints>

@@ -93,7 +93,7 @@ public class Agents extends javax.swing.JFrame {
         cbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - laki", "Perempuan" }));
         getContentPane().add(cbGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 252, 110, 30));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/APOTIK SUMBER WARAS (7).png"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/KARYAWAN.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         tbtnSelling.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -299,8 +299,9 @@ public class Agents extends javax.swing.JFrame {
     }//GEN-LAST:event_AgentsTableMouseClicked
 
     private void tbtnSellingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbtnSellingMouseClicked
-        new Selling().setVisible(true);
-        this.dispose();
+        dispose();
+        Selling selling = new Selling();
+        selling.setVisible(true);
     }//GEN-LAST:event_tbtnSellingMouseClicked
 
     private void tbtnMedicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbtnMedicineMouseClicked
@@ -314,7 +315,9 @@ public class Agents extends javax.swing.JFrame {
     }//GEN-LAST:event_tbtnCompanyMouseClicked
 
     private void tbtnAgentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbtnAgentsMouseClicked
-        tbtnAgents.setSelected(true);
+        dispose();
+        Agents agents = new Agents();
+        agents.setVisible(true);
     }//GEN-LAST:event_tbtnAgentsMouseClicked
 
     private void tbtnSellingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnSellingActionPerformed
